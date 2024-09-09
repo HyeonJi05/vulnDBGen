@@ -77,8 +77,8 @@ def main():
             path = f.parentFile
             path = "." + path[f.parentFile.find("/vul/"):]
             absBody = parser.abstract(f, intendedAbsLvl)[1]
-            #absBody = parser.normalize(absBody).encode('utf-8')
-            absBody = parser.normalize(absBody)
+            #absBody = parser.normalize(absBody)
+            absBody = parser.normalize(absBody).encode('utf-8')
             # print absBody
             funcLen = len(absBody)
             # print funcLen, absBody

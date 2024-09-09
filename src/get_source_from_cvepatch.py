@@ -32,7 +32,7 @@ t1 = time.time()
 
 """ re patterns """
 pat_src = '[\n](?=diff --git a/)'
-pat_chunk = '[\n](?=@@\s[^a-zA-Z]*\s[^a-zA-Z]*\s@@)'
+pat_chunk = '[\n](?=@@\\s[^a-zA-Z]*\\s[^a-zA-Z]*\s@@)'
 pat_linenum = r"-(\d+,\d+) \+(\d+,\d+) "
 pat_linenum = re.compile(pat_linenum)
 
