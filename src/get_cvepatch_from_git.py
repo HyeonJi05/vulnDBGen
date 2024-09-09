@@ -123,7 +123,7 @@ def callGitLog(gitDir):
         try:
             gitLogOutput = subprocess.check_output(command_log, shell=True)
             #commitsList = re.split('[\n](?=commit\s\w{40}\nAuthor:\s)|[\n](?=commit\s\w{40}\nMerge:\s)', gitLogOutput)
-            commitsList = re.split(b'[\n](?=commit\s\w{40}\nAuthor:\s)|[\n](?=commit\s\w{40}\nMerge:\s)', gitLogOutput)
+            commitsList = re.split(b'[\n](?=commit\\s\\w{40}\nAuthor:\\s)|[\n](?=commit\\s\\w{40}\nMerge:\\s)', gitLogOutput)
         except subprocess.CalledProcessError as e:
             print("[-] Git log error:", e)
     except UnicodeDecodeError as err:
@@ -250,7 +250,7 @@ def parallel_process(subRepoName, commitMessage):
             commitHashValue = commitHashValue.decode('utf-8')
         #추가
         commitMessage = commitMessage.decode('utf-8')
-        cvePattern = re.compile('CVE-20\d{2}-\d{4,7}')  # note: CVE id can now be 7 digit numbers
+        cvePattern = re.compile('CVE-20\\d{2}-\\d{4,7}')  # note: CVE id can now be 7 digit numbers
         cveIdList = list(set(cvePattern.findall(commitMessage)))
         
         """    
